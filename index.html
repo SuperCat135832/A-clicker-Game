@@ -11,13 +11,21 @@
 
     <div class="game-container">
         <h1>Klicker Spiel</h1>
-        <div class="version">Release 0.0.2-dev</div>
+        <div class="version">Release 0.0.3</div>
         
         <!-- Hier werden die Punkte angezeigt -->
         <div class="score-display" id="score">0</div>
         
         <!-- Der Button zum Klicken -->
         <button class="click-button" id="clickBtn">KLICK MICH!</button>
+
+        <!-- NEU in v0.0.3: Shop / Upgrades -->
+        <div class="upgrades-container">
+            <button class="upgrade-button" id="buyAutoClicker" disabled>
+                <span>🤖 Auto-Klicker (<span id="autoclicker-count">0</span>)</span>
+                <span id="autoclicker-cost">15 Klicks</span>
+            </button>
+        </div>
     </div>
 
     <!-- Hier verknüpfen wir die JavaScript-Datei für die Logik -->
