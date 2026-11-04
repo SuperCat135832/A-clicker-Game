@@ -11,19 +11,31 @@
 
     <div class="game-container">
         <h1>Klicker Spiel</h1>
-        <div class="version">Release 0.0.3</div>
+        <div class="version">Release 0.0.4</div>
         
         <!-- Hier werden die Punkte angezeigt -->
         <div class="score-display" id="score">0</div>
+        <!-- NEU: Anzeige für Punkte pro Sekunde -->
+        <div class="pps-display" id="ppsDisplay">+0/s</div>
         
         <!-- Der Button zum Klicken -->
         <button class="click-button" id="clickBtn">KLICK MICH!</button>
 
-        <!-- NEU in v0.0.3: Shop / Upgrades -->
-        <div class="upgrades-container">
+        <!-- NEU: Shop Toggle Button mit Einkaufswagen-Symbol -->
+        <button class="shop-toggle-btn" id="shopToggleBtn">🛒 Shop öffnen</button>
+
+        <!-- Modifiziert: Der Upgrades-Bereich startet jetzt versteckt -->
+        <div class="upgrades-container hidden" id="upgradesContainer">
+            <!-- Upgrade 1: Auto-Klicker -->
             <button class="upgrade-button" id="buyAutoClicker" disabled>
                 <span>🤖 Auto-Klicker (<span id="autoclicker-count">0</span>)</span>
                 <span id="autoclicker-cost">15 Klicks</span>
+            </button>
+            
+            <!-- NEU: Upgrade 2: Skalierende Finger -->
+            <button class="upgrade-button" id="buyFingerUpgrade" disabled>
+                <span>☝️ Stärkere Finger (St. <span id="finger-level">0</span>)</span>
+                <span id="finger-cost">50 Klicks</span>
             </button>
         </div>
     </div>
