@@ -53,13 +53,24 @@ function saveGame() {
 
 // Berechnet den aktuellen Wert pro manuellem Klick (Basis 1 + 5% von PpS pro Level)
 function getClickValue() {
-    const pps = autoClickers; // Aktuell gibt jeder Autoklicker genau 1/s
-    if (fingerLevel === 0) return 1;
+    const pps = autoClickers; // Deine Punkte pro Sekunde (z.B. 11)
     
-    const bonusProzent = fingerLevel * 0.05; // 5%, 10%, 15% ...
-    const berechneterWert = 1 + Math.floor(pps * bonusProzent);
-    return berechneterWert;
+    // Basiswert startet bei 1
+    let basis = 1; 
+    
+    // NEU: Wir runden die PpS-Beteiligung AUF (Math.ceil) statt ab!
+    // Dadurch gibt jeder Auto-Klicker sofort einen spürbaren Bonus.
+    if (pps > 0) {
+        basis = basis + Math.ceil(pps * 0.20); // 20% der PpS werden als Basis addiert
+    }
+    
+    // Jede Upgrade-Stufe gibt dir jetzt satte +50% Multiplikator (Stufe 5 = 3.5x Kraft!)
+    const multiplikator = 1 + (fingerLevel * 0.50);
+    
+    // Endergebnis wird ebenfalls AUFGERUNDET
+    return Math.max(1, Math.ceil(basis * multiplikator));
 }
+
 
 // Aktualisiere die Anzeige auf der Webseite und prüft Bedingungen
 function updateUI() {
