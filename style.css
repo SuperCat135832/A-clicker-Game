@@ -32,14 +32,22 @@ h1 {
 .version {
     font-size: 0.9rem;
     color: #777;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .score-display {
     font-size: 3rem;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     color: #ffffff;
+}
+
+/* NEU: Stil für die Punkte-pro-Sekunde Anzeige */
+.pps-display {
+    font-size: 1.2rem;
+    color: #00ffcc;
+    margin-bottom: 25px;
+    opacity: 0.8;
 }
 
 /* Der Haupt-Klick-Button */
@@ -58,22 +66,43 @@ h1 {
     box-sizing: border-box;
 }
 
-/* Animationen */
 .click-button:hover {
     box-shadow: 0 5px 25px rgba(0, 255, 204, 0.6);
 }
 
 .click-button:active {
-    transform: scale(0.95); /* Button zieht sich beim Klick leicht zusammen */
+    transform: scale(0.95);
 }
 
-/* --- NEU IN v0.0.3 --- */
+/* NEU: Shop-Umschaltknopf */
+.shop-toggle-btn {
+    margin-top: 20px;
+    background-color: #333;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.shop-toggle-btn:hover {
+    background-color: #444;
+}
 
 .upgrades-container {
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Klasse zum Verstecken des Shops */
+.hidden {
+    display: none;
 }
 
 .upgrade-button {
@@ -102,7 +131,7 @@ h1 {
     cursor: not-allowed;
 }
 
-/* Schwebender "+1" Text-Effekt */
+/* Schwebender Text-Effekt */
 .floating-text {
     position: absolute;
     color: #00ffcc;
